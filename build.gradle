@@ -1,0 +1,66 @@
+//常规用法：http://leon-wood.iteye.com/blog/1708644
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+	apply plugin: 'maven'
+	version = '1.0'
+    sourceSets { 
+	 main { 
+	 	java{
+	 		srcDir "$projectDir/src"
+	 	}
+	 	resources{
+		 	srcDir "$projectDir/src"
+		 }
+	 } 
+ 	}
+   	sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    repositories {
+       jcenter()
+       mavenCentral()
+       flatDir(dirs: file("../global/lib")) 
+    }
+
+    dependencies {
+        testCompile 'junit:junit:4.8.2'
+    }
+    
+    jar {
+        manifest.attributes provider: 'cj crops'
+    }
+   
+	tasks.withType(JavaCompile) {  
+        options.encoding = "UTF-8"  
+    }  
+	tasks.withType(Javadoc) {
+	    options.addStringOption('Xdoclint:none', '-quiet')
+	    options.addStringOption('encoding', 'UTF-8')
+	    options.addStringOption('charSet', 'UTF-8')
+	}
+	task javadocJar(type: Jar, dependsOn: javadoc) {
+	    classifier = 'javadoc'
+	    from javadoc.destinationDir
+	}
+	task sourcesJar(type: Jar, dependsOn: classes) {
+	    classifier = 'sources'
+	    from sourceSets.main.allSource
+	}
+    uploadArchives {
+	    repositories {
+	       flatDir {
+	           dirs file('release')
+	       }
+    	}
+
+	}
+}
+task release(type: Copy) {
+     dependsOn ":cj.studio.gateway.examples.frontend.website:release"
+ 		doLast {
+			println 'frontend 环境发布完毕!'
+		}
+}
+
+
+
