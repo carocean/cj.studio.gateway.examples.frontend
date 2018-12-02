@@ -5,23 +5,58 @@ import cj.studio.ecm.annotation.CjService;
 import cj.studio.ecm.annotation.CjServiceRef;
 import cj.studio.ecm.frame.Circuit;
 import cj.studio.ecm.frame.Frame;
+import cj.studio.ecm.frame.IFeedback;
 import cj.studio.ecm.graph.CircuitException;
 import cj.studio.gateway.socket.app.IGatewayAppSiteResource;
 import cj.studio.gateway.socket.app.IGatewayAppSiteWayWebView;
 import cj.studio.gateway.socket.pipeline.IOutputSelector;
 import cj.studio.gateway.socket.pipeline.IOutputer;
-@CjService(name="/" ,scope=Scope.multiton)
+import io.netty.buffer.ByteBuf;
+
+@CjService(name = "/", scope = Scope.multiton)
 public class Home implements IGatewayAppSiteWayWebView {
-	@CjServiceRef(refByName="$.output.selector")
+	@CjServiceRef(refByName = "$.output.selector")
 	IOutputSelector selector;
+
 	@Override
 	public void flow(Frame f, Circuit c, IGatewayAppSiteResource ctx) throws CircuitException {
 //		Element doc=ctx.html("/index.html");
-		IOutputer output=selector.select("uc");
-		Frame req=new Frame("get /uc/ http/1.1");
-		Circuit feeds=new Circuit("http/1.1 200 ok");
-		output.send(req, feeds);//之后再实现通过tcp/udt/ws/等异步协议获取backend的restfull消息接收机制（通过回调方法让backend推来，而后该frontend再推向浏览器
-		c.content().writeBytes(feeds.content());
+//		test1(f,c);
+		test2(f, c);
+	}
+
+	void test2(Frame f, Circuit c) throws CircuitException {
+		Frame req = new Frame("get /uc/ http/1.1");
+		Circuit feeds = new Circuit("http/1.1 200 ok");
+		IOutputer output = selector.select("uc");
+		output.send(req, feeds);
+		c.copyFrom(feeds, true);
+	}
+
+	void test1(Frame f, Circuit c) throws CircuitException {
+		Frame req = new Frame("get /uc/ http/1.1");
+		Circuit feeds = new Circuit("http/1.1 200 ok", new IFeedback() {
+
+			@Override
+			public void begin(Circuit c) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void done(ByteBuf arg0, Circuit c) {
+				c.content().writeBytes(arg0);
+			}
+
+			@Override
+			public void write(ByteBuf arg0, Circuit c) throws CircuitException {
+				c.content().writeBytes(arg0);
+			}
+
+		});
+		IOutputer output = selector.select("uc");
+		output.send(req, feeds);
+		c.copyFrom(feeds, true);
 	}
 
 }
