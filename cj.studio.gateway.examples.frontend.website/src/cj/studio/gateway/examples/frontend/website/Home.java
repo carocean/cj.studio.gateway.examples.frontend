@@ -31,6 +31,7 @@ public class Home implements IGatewayAppSiteWayWebView {
 		IOutputer output = selector.select("uc");
 		output.send(req, feeds);
 		c.copyFrom(feeds, true);
+		output.closePipeline();
 	}
 
 	void test1(Frame f, Circuit c) throws CircuitException {
