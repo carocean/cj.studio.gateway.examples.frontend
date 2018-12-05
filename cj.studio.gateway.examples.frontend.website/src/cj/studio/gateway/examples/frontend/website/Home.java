@@ -1,5 +1,7 @@
 package cj.studio.gateway.examples.frontend.website;
 
+import org.jsoup.nodes.Element;
+
 import cj.studio.ecm.Scope;
 import cj.studio.ecm.annotation.CjService;
 import cj.studio.ecm.annotation.CjServiceRef;
@@ -23,6 +25,7 @@ public class Home implements IGatewayAppSiteWayWebView {
 //		Element doc=ctx.html("/index.html");
 //		test1(f,c);
 		test2(f, c);
+//		c.content().writeBytes(doc.html().getBytes());
 	}
 
 	void test2(Frame f, Circuit c) throws CircuitException {
@@ -31,7 +34,8 @@ public class Home implements IGatewayAppSiteWayWebView {
 		IOutputer output = selector.select("uc");
 		output.send(req, feeds);
 		c.copyFrom(feeds, true);
-		output.closePipeline();
+//		output.closePipeline();
+		output.releasePipeline();
 	}
 
 	void test1(Frame f, Circuit c) throws CircuitException {
