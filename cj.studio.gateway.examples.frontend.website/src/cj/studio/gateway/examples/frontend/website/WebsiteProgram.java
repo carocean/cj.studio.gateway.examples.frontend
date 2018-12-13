@@ -1,7 +1,7 @@
 package cj.studio.gateway.examples.frontend.website;
 
 import cj.studio.ecm.annotation.CjService;
-import cj.studio.ecm.graph.CircuitException;
+import cj.studio.ecm.net.CircuitException;
 import cj.studio.gateway.socket.Destination;
 import cj.studio.gateway.socket.app.GatewayAppSiteProgram;
 import cj.studio.gateway.socket.app.ProgramAdapterType;
