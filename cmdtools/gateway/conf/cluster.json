@@ -28,7 +28,7 @@
 			}
 		},
 		{
-			"name": "backend",
+			"name": "/backend/uc/",
 			"uris": [
 				"http://localhost:9090"
 			],

@@ -21,7 +21,7 @@ public class Home implements IGatewayAppSiteWayWebView {
 
 	@Override
 	public void flow(Frame f, Circuit c, IGatewayAppSiteResource ctx) throws CircuitException {
-		IOutputer back = selector.select("backend");// 回发
+		IOutputer back = selector.select("uc");// 回发
 
 		MemoryInputChannel in = new MemoryInputChannel(8192);
 		Frame f1 = new Frame(in, "post /uc/ http/1.1");

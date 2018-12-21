@@ -38,6 +38,10 @@
 			extName:".jss.js"
 		}],
 		scans : [{
+					package : "cj.studio.gateway.stub",
+					extName : ".class|.json|.xml",
+					exoterical:"true"
+				},{
 					package : "cj.studio.gateway.examples.frontend.website",
 					extName : ".class|.json|.xml",
 					exoterical:"true"

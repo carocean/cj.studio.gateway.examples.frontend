@@ -18,11 +18,11 @@ sourceSets {
  } 
 
 dependencies {
-	//compile fileTree('../global/jee.runtime')
 	compile fileTree('../global/runtime')
 	compile fileTree('../global/cjtools')
-	//compile fileTree('src/cj/references')
-	
+	compile fileTree('../global/cjmodules')
+	compile fileTree('src/cj/refembeds')
+	compile fileTree('src/cj/references')
 }
 task releaseToHost(type: Copy) {
  dependsOn "build"
