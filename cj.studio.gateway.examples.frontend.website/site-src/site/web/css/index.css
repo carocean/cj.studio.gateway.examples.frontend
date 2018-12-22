@@ -1,0 +1,694 @@
+.container {
+	min-height: 100%;
+	display: flex;
+	display: -ms-flex;
+	display: -webkit-flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+}
+
+.container>.workbench {
+	flex: 1;
+	display: flex;
+	display: -ms-flex;
+	display: -webkit-flex;
+	flex-direction: column;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+}
+
+.container>.workbench>.header {
+	height: 100px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	background: #f5f5f5;
+	z-index: 99999999;
+	-moz-box-shadow: 3px 4px 4px rgba(170, 170, 170, .8); /* Firefox */
+	-webkit-box-shadow: 3px 4px 4px rgba(170, 170, 170, .8);
+	/* Safari 和 Chrome */
+	box-shadow: 3px 4px 4px rgba(170, 170, 170, .8);
+}
+
+.container>.workbench>.header>.topbar {
+	position: absolute;
+	right: 10px;
+	top: 0;
+	min-width: 100px;
+	height: 30px;
+	border-bottom: 1px solid white;
+	text-align: right;
+	height: 30px;
+}
+.container>.workbench>.desktop>.mask{
+	position: fixed;
+	left:0;
+	top:0;
+	right:0;
+	bottom: 0;
+	background: rgba(238,238,238,0.9);
+	z-index: 999999999;
+	display: none;
+}
+.container>.workbench>.desktop>.mask>.content{
+	margin: 100px 100px 100px 50px;
+	overflow: auto;
+	background: rgba(245,245,220,1);
+	-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+border-radius: 10px;
+}
+.container>.workbench>.header>.topbar>.items>li {
+	display: inline-block;
+	line-height: 30px;
+	font-size: 12px;
+	color: gray;
+	padding-left: 15px;
+}
+
+.container>.workbench>.header>.docker {
+	position: absolute;
+	top: 30px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.container>.workbench>.header>.docker>.docker-layout {
+	height: 100%;
+	padding-left: 200px;
+	position: relative;
+}
+
+.container>.workbench>.header>.docker>.docker-layout>.logo-region {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 200px;
+	bottom: 0;
+}
+
+.container>.workbench>.header>.docker>.docker-layout>.logo-region .log {
+	position: relative;
+}
+
+.container>.workbench>.header>.docker>.docker-layout>.logo-region .anchor
+	{
+	height: 2px;
+	background: gray;
+	position: absolute;
+	bottom: 0;
+	left: -20px;
+	right: 80px;
+	text-align: center;
+	line-height: 8px;
+	color: white;
+	cursor: pointer;
+	display: none;
+}
+
+.container>.workbench>.header>.docker>.docker-layout>.logo-region anchor:hover
+	{
+	color: gray;
+	background: none;
+}
+
+.container>.workbench>.header>.docker>.docker-layout>.logo-region .anchor span
+	{
+	font-size: 8px;
+	font-weight: bold;
+}
+
+.container>.workbench>.header>.docker>.docker-layout>.logo-region img {
+	height: 80px;
+	max-width: 200px;
+	position: absolute;
+	top: -20px;
+	left: 0;
+}
+
+.container>.workbench>.header>.docker>.docker-layout>.toolbar {
+	height: 100%;
+	position: relative;
+	padding-left: 80px;
+}
+
+.container>.workbench>.header>.docker>.docker-layout>.toolbar>.launchbar
+	{
+	position: absolute;
+	left: 0;
+	bottom: -1px;
+	width: 80px;
+	background: gray;
+	line-height: 43px;
+	text-align: center;
+	color: white;
+	-moz-border-radius: 8px 10px 0 0;
+	-webkit-border-radius: 8px 10px 0 0;
+	border-radius: 8px 10px 0 0;
+}
+
+.container>.workbench>.header>.docker>.docker-layout>.toolbar>.launchbar span
+	{
+	-moz-box-shadow: 0 10px 15px #000; /* Firefox */
+	-webkit-box-shadow: 0 10px 15px #000; /* Safari 和 Chrome */
+	box-shadow: 0 10px 15px #fff;
+}
+.launchbar-hover,
+.container>.workbench>.header>.docker>.docker-layout>.toolbar>.launchbar:hover
+	{
+	cursor: pointer;
+	background: #ff5500 !important;
+}
+
+.container>.workbench>.header>.docker>.docker-layout>.toolbar .tools {
+	position: absolute;
+	left: 80px;
+	bottom: 0;
+	right: 0;
+	line-height: 0;
+	border-bottom: 3px solid #e7e7e7;
+}
+.container>.workbench>.header>.docker>.docker-layout>.toolbar .tools >.app-titlebar{
+	white-space: nowrap;
+	position: absolute;
+	right:0;
+	bottom:0px;
+	color: gray;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 18px;
+	display: none;
+}
+
+.container>.workbench>.header>.docker>.docker-layout>.toolbar .tools >.app-titlebar>.app-title{
+	display: inline-block;
+	margin-right: 10px;
+}
+.container>.workbench>.header>.docker>.docker-layout>.toolbar .tools >.app-titlebar>.app-actions{
+	display: inline-block;
+}
+.container>.workbench>.header>.docker>.docker-layout>.toolbar .tools >.app-titlebar>.app-actions>li{
+	display: inline-block;
+	padding: 0 10px;
+	cursor: pointer;
+	color: gray;
+}
+.container>.workbench>.header>.docker>.docker-layout>.toolbar .tools >.app-titlebar>.app-actions>li:hover{
+	border: 1px solid gray !important;
+	color: red;
+}
+.container>.workbench>.header>.docker>.docker-layout>.toolbar .shortcuts
+	{
+	margin-left: 25px;
+	display: inline-block;
+}
+
+.container>.workbench>.header>.docker>.docker-layout>.toolbar .shortcuts img
+	{
+	width: 100%;
+	height: 100%;
+}
+
+.container>.workbench>.header>.docker>.docker-layout>.toolbar .shortcuts .circle
+	{
+	cursor: pointer;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	overflow: hidden;
+	-moz-box-shadow: 3px 4px 4px rgba(170, 170, 170, .8); /* Firefox */
+	-webkit-box-shadow: 3px 4px 4px rgba(170, 170, 170, .8);
+	/* Safari 和 Chrome */
+	box-shadow: 3px 4px 4px rgba(170, 170, 170, .8);
+}
+
+.container>.workbench>.header>.docker>.docker-layout>.toolbar .shortcuts .circle:hover
+	{
+	border-bottom: 1px solid white;
+}
+
+.container>.workbench>.header>.docker>.docker-layout>.toolbar .shortcuts>.button
+	{
+	display: inline-block;
+	padding: 0 15px;
+}
+
+.container>.workbench>.desktop {
+	flex: 1;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	padding-top: 100px;
+	position: relative;
+}
+.container>.workbench>.desktop>.sidebar{
+	position: fixed;
+	right:0;
+	bottom:38px;
+	top:108px;
+	width: 80px;
+	background: rgba(236,236,236,0.8);
+	z-index: 99999999999;
+	-moz-box-shadow: -3px 4px 4px rgba(170, 170, 170, .8);
+    -webkit-box-shadow: -3px 4px 4px rgba(170, 170, 170, .8);
+    box-shadow: -3px 4px 4px rgba(170, 170, 170, .8);
+    -moz-border-radius: 15px 0 0 15px; /* Firefox */
+  -webkit-border-radius: 15px 0 0 15px; /* Safari 和 Chrome */
+  border-radius: 15px 0 0 15px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+  min-height: 600px;
+}
+}
+.container>.workbench>.desktop>.column {
+	height: 100%;
+}
+
+.container>.workbench>.desktop>.launchpad {
+	position: fixed;
+	left: 0;
+	top: 100px;
+	right: 0;
+	bottom: 60px;
+	z-index: 999999999;
+	overflow: auto;
+	-moz-box-shadow: 3px 4px 4px rgba(170, 170, 170, .8); /* Firefox */
+	-webkit-box-shadow: 3px 4px 4px rgba(170, 170, 170, .8);
+	/* Safari 和 Chrome */
+	box-shadow: 3px 4px 4px rgba(170, 170, 170, .8);
+	display: none;
+}
+
+.container>.workbench>.desktop>.launchpad>.apps {
+	width: 100%;
+	height: 100%;
+	background: rgba(238, 204, 238, 1);
+}
+
+.container>.workbench>.desktop>.launchpad>.apps>ul {
+	padding: 10px;
+}
+
+.container>.workbench>.desktop>.launchpad>.apps>ul>li {
+	display: inline-block;
+	padding: 25px 30px;
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+	color: white;
+	cursor: pointer;
+}
+
+.container>.workbench>.desktop>.launchpad>.apps>ul>li>img {
+	width: 70px;
+	height: 70px;
+}
+
+.container>.workbench>.desktop>.launchpad>.apps>ul>li>span {
+	display: block;
+}
+
+.container>.workbench>.desktop>.display {
+	position: fixed;
+	left: 0;
+	top: 100px;
+	right: 0;
+	bottom: 60px;
+	overflow: auto;
+	z-index: 999999999;
+	-moz-box-shadow: 3px 4px 4px rgba(170, 170, 170, .8); /* Firefox */
+	-webkit-box-shadow: 3px 4px 4px rgba(170, 170, 170, .8);
+	/* Safari 和 Chrome */
+	box-shadow: 3px 4px 4px rgba(170, 170, 170, .8);
+	display: none;
+	
+}
+
+.container>.workbench>.desktop>.display>.view {
+	width: 100%;
+	height: 100%;
+	background: rgba(235, 235, 235, 1);
+	background-attachment:fixed;
+	position: relative;
+	-moz-border-radius: 4px 4px 0 0;
+	-webkit-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+}
+.container>.workbench>.desktop>.display>.view >.border{
+	background-color: #ececec;
+	height: 10px;
+	position: absolute;
+	top:0;
+	left:0;
+	right:0;
+	-moz-border-radius: 4px 4px 0 0;
+	-webkit-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+}
+.container>.workbench>.desktop>.display>.view >.content{
+	position:absolute;
+	left:10px;
+	right:10px;
+	top:10px;
+	bottom:10px;
+	overflow: auto;
+	font-size: 12px;
+}
+.footer>.footer-box {
+	padding-top: 3px;
+	width: 100%;
+}
+
+.footer .contents {
+	margin: 8px 0;
+	position: relative;
+	text-align: center;
+	font-size: 12px;
+}
+
+.footer .contents .crop {
+	padding-right: 10px;
+}
+
+.footer .contents>p {
+	margin: 2px auto;
+}
+
+.container>.workbench>.desktop>.column  .layout-main {
+	float: left;
+	width: 100%;
+	min-height: 30px;
+	height: 100%;
+}
+
+.container>.workbench>.desktop>.column  .layout-main .column-context {
+	margin-left: 500px; /*与col-sub产生10像素距离*/
+	min-height: 30px;
+	height: 100%;
+}
+
+.container>.workbench>.desktop>.column  .column-left {
+	float: left;
+	width: 490px;
+	min-height: 30px;
+	height: 100%;
+	margin-left: -100%;
+	border-right: 1px solid #f5f5f5;
+}
+
+.container>.workbench>.desktop>.column  .column-right {
+	float: left;
+	width: 250px;
+	min-height: 30px;
+	height: 100%;
+	margin-left: -250px;
+	display: none;
+}
+.container>.workbench>.desktop>.column  .layout-main .column-context >.main-column-lets{
+}
+.container>.workbench>.desktop>.column  .layout-main .column-context >.main-column-lets>.portlet{
+	min-height: 100px;
+	border-bottom: 1px solid #ececec;
+	margin: 15px 10px;
+}
+.container>.workbench>.desktop>.column  .column-left >.left-column-lets>.portlet{
+	min-height: 100px;
+	border-bottom: 1px solid #ececec;
+	margin: 15px 10px;
+}
+.container>.workbench>.desktop>.column  .column-right >.right-column-lets>.portlet{
+	min-height: 100px;
+	border-bottom: 1px solid #ececec;
+	margin: 15px 10px;
+}
+
+.container>.workbench>.desktop .sidebar .sbar-header{
+	position: absolute;
+	top:-60px;
+	right:0;
+	left:0;
+	text-align: center;
+	color: gray;
+	font-size: 12px;
+	font-weight: bold;
+}
+.container>.workbench>.desktop .sidebar .sbar-header img{
+	width:50px;
+	max-height: 50px;
+	border: 2px solid #f5f5f5;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	-moz-box-shadow: -3px 4px 4px rgba(170, 170, 170, .8);
+-webkit-box-shadow: -3px 4px 4px rgba(170, 170, 170, .8);
+box-shadow: -3px 4px 4px rgba(170, 170, 170, .8);
+}
+.container>.workbench>.desktop .sidebar .sbar-spliter{
+	height: 1px;
+	width:100%;
+	background: white;
+	margin: 10px auto;
+}
+.container>.workbench>.desktop .sidebar .sbar-task{
+	text-align: center;
+	padding-bottom: 10px;
+	position: relative;
+}
+.container>.workbench>.desktop .sidebar .sbar-task>.r-tips{
+	position: absolute;
+	left:50%;
+bottom: 5px;
+line-height: 25px;
+margin-left: -9px;
+display: inline-block;
+width: 20px;
+height: 20px;
+-moz-border-radius: 50%;
+-webkit-border-radius: 50%;
+border-radius: 50%;
+background: red;
+color: white;
+}
+.container>.workbench>.desktop .sidebar .sbar-task img{
+	width:40px;
+	height: 40px;
+	cursor: pointer;
+}
+.container>.workbench>.desktop .sidebar .sbar-task img:hover{
+	border-bottom: 1px solid red;
+}
+.container>.workbench>.desktop .sidebar .sbar-task .sbar-cur-box{
+	min-height: 200px;
+	width:75px;
+	background: rgba(245,210,3,.9); 
+	position: absolute;
+	left:-75px;
+	top:0;
+	border: 1px solid #ececec;
+}
+.container>.workbench>.desktop .sidebar .sbar-header .sbar-duties{
+	display: flex;
+}
+.container>.workbench>.desktop .sidebar .sbar-header .sbar-duties>.sbar-duty{
+	flex: 1;
+	cursor: pointer;
+	border-right: 1px solid #fff;
+}
+.container>.workbench>.desktop .sidebar .sbar-header .sbar-duties>.sbar-duty:hover{
+	color: red;
+	background: white;
+}
+.container>.workbench>.desktop .sidebar .sbar-task .sbar-cur-box{
+	display: none;
+}
+.container>.workbench>.desktop .sidebar .sbar-task .sbar-cur-box>.sbar-cur-ul{
+	overflow-y: auto;
+overflow-x: hidden;
+max-height: 592px;
+}
+.container>.workbench>.desktop .sidebar .sbar-task .sbar-cur-box>.sbar-cur-ul>li{
+	cursor: pointer;
+	margin: 1px 1px;
+	color: gray;
+	font-weight: bold;
+	text-align: center;
+	border-bottom: 1px solid #f5f5f5;
+	font-size: 12px;
+}
+.container>.workbench>.desktop .sidebar .sbar-task .sbar-cur-box>.sbar-cur-ul>li:last-child{
+	border-bottom:none;
+}
+.container>.workbench>.desktop .sidebar .sbar-task .sbar-cur-box>.sbar-cur-ul>li:hover{
+	background: #f5f5f5;
+	color: red;
+}
+.container>.workbench>.desktop .sidebar .sbar-task .sbar-cur-box>.sbar-cur-ul>li>.sbar-cur-time{
+	text-decoration: underline;
+	padding-top: 10px;
+	padding-bottom: 6px;
+}
+.container>.workbench>.desktop .sidebar .sbar-task .sbar-cur-box>.sbar-cur-ul>li>.sbar-cur-time:hover{
+	border-bottom: 1px solid red;
+}
+.container>.workbench>.desktop .sidebar .sbar-task .sbar-cur-box>.sbar-cur-ul>li>.sbar-cur-time>label{
+	font-size: 10px;
+	cursor: pointer;
+}
+.container>.workbench>.desktop .sidebar .sbar-task .sbar-cur-box>.sbar-cur-ul>li .sbar-cur-ops{
+	display: flex;
+	padding-top: 5px;
+}
+.container>.workbench>.desktop .sidebar .sbar-task .sbar-cur-box>.sbar-cur-ul>li .sbar-cur-ops>li{
+	flex: 1px;
+}
+.container>.workbench>.desktop .sidebar .sbar-task .sbar-cur-box>.sbar-cur-ul>li .sbar-cur-ops>li.sbar-cur-toteam{
+	display: none;
+}
+.container>.workbench>.desktop .sidebar .sbar-task .sbar-cur-box>.sbar-cur-ul>li .sbar-cur-ops>li>img{
+	width:15px;
+	height: 15px;
+}
+
+.container>.workbench>.desktop .sidebar .sbar-shops{
+	overflow: auto;
+	height: 390px;
+}
+.container>.workbench>.desktop .sidebar .sbar-shop{
+	padding: 10px 0;
+	position: relative;
+	text-align: center;
+	cursor: pointer;
+}
+.container>.workbench>.desktop .sidebar .sbar-shop img{
+	width: 45px;
+	height: 45px;
+}
+.container>.workbench>.desktop .sidebar .sbar-shop img:hover{
+	border: 2px solid white;
+}
+.container>.workbench>.desktop .sidebar .sbar-shop .label{
+	color: gray;
+	font-size: 12px;
+	text-overflow: ellipsis;
+}
+.container>.workbench>.desktop .sidebar .sbar-shop .l-tips{
+	position: absolute;
+	left:50%;
+	top:-0px;
+	margin-left:-35px;
+	display: inline-block;
+	width:25px;
+	height: 25px;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	background: green;
+	color: white;
+	line-height: 25px;
+	
+}
+.container>.workbench>.desktop .sidebar .sbar-shop .r-tips{
+	position: absolute;
+	right:50%;
+	top:-0px;
+	line-height: 25px;
+	margin-right:-35px;
+	display: inline-block;
+	width:25px;
+	height: 25px;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	background: red;
+	color: white;
+}
+
+.container>.workbench>.desktop .sidebar .sbar-allevents{
+	text-align: center;
+	padding: 10px 0;
+	cursor: pointer;
+	margin-bottom: 10px;
+}
+.container>.workbench>.desktop .sidebar .sbar-allevents:hover{
+	background: white;
+}
+.container>.workbench>.desktop .sidebar .sbar-allevents .label{
+	color: gray ;
+}
+.container>.workbench>.desktop .sidebar .sbar-allevents .value{
+	color: red ;
+}
+.container>.workbench>.desktop .shop-select span{
+	display: inline-block;
+	padding-right: 5px;
+}
+.container>.workbench>.desktop .shop-select .label{
+	font-weight: bold;
+	color: gray;
+}
+.container>.workbench>.desktop .shop-select .shop-name{
+	font-weight: bold;
+}
+
+.bubble {
+	position: relative;
+	padding-right: 15px;
+	color: #ffffff;
+	font-size: 1.6em;
+	line-height: 1.3em;
+	text-align: left;
+	border-radius: 0.5em;
+	float: left;
+	height: 4em;
+	left: 0;
+}
+
+.bubble:after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	border: 15px solid rgba(0, 0, 0, 0);
+	border-left-width: 0;
+}
+
+.bubble-left:after {
+	border-right-color: #f5f5f5;
+	top: 0%;
+	right: 100%;
+	margin-top: 0.3em;
+	border-left-width: 0.0em;
+	border-right-width: 0.6em;
+	border-bottom-width: 0.4em;
+	border-top-width: 0.4em;
+}
+.bubble-right:after {    
+    border-left-color: rgba(245,210,3);    
+    top: 0%;    left: 100%;    
+    margin-top: 0.5em;    
+    border-right-width: 0.0em;    
+    border-left-width: 0.6em;    
+    border-bottom-width: 0.4em;    
+    border-top-width: 0.4em;
+}
+.bubble-top:after {    
+    border-bottom-color: #60d8ce;    
+    left: 0%;    
+    bottom: 100%;    
+    margin-left: 1.9em;    
+    border-top-width: 0.0em;    
+    border-bottom-width: 0.6em;    
+    border-left-width: 0.4em;    
+    border-right-width: 0.4em;
+}
+.bubble-bottom:after {    
+    border-top-color: #60d8ce;    
+    left: 0%;    
+    top: 100%;    
+    margin-left: 1.9em;    
+    border-bottom-width: 0.0em;    
+    border-top-width: 0.6em;    
+    border-left-width: 0.4em;    
+    border-right-width: 0.4em;
+}

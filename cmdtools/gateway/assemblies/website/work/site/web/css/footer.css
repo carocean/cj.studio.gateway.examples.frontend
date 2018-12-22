@@ -1,0 +1,16 @@
+.footer{
+ height: 80px;
+}
+.footer>.footer-box{
+    padding-top: 3px;
+    width: 100%;
+}
+.footer .contents{
+	margin: 8px 0;
+	position: relative;
+	text-align: center;
+	font-size: 12px;
+}
+.footer .contents>p{
+	margin: 2px auto;
+}
