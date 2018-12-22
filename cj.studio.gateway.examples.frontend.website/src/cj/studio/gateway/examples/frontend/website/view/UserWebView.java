@@ -21,14 +21,10 @@ public class UserWebView implements IGatewayAppSiteWayWebView {
 	IUserStub user;
 	@Override
 	public void flow(Frame f, Circuit c, IGatewayAppSiteResource ctx) throws CircuitException {
-		UserBO bo=user.getUser("1001479428");
-		System.out.println("----1--"+bo);
 		UserBO bo1=new UserBO();
 		bo1.setAge(33);
-		String id=f.hashCode()+"";
-		bo1.setId(id);
 		bo1.setName("wuj");
-		user.save(bo1);
+		long id=user.save(bo1);
 		UserBO bo2=user.getUser(id);
 		System.out.println("----2--"+bo2);
 		List<UserBO> list=user.query("wuj", 33);
