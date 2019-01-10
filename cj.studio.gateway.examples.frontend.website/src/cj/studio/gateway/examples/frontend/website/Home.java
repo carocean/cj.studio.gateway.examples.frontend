@@ -33,13 +33,20 @@ public class Home implements IGatewayAppSiteWayWebView {
 		byte[] b = "name=zhaoxb&type=1&age=10&dept=国务院".getBytes();
 		in.done(b, 0, b.length);
 
-		MemoryOutputChannel out = new MemoryOutputChannel();
+		MemoryOutputChannel out = new MemoryOutputChannel() {
+			@Override
+			public void done(byte[] b, int pos, int length) {
+				// TODO Auto-generated method stub
+				super.done(b, pos, length);
+				byte[] ret = readFully();
+				c.content().writeBytes(ret);
+			}
+		};
 		Circuit c1 = new Circuit(out, "http/1.1 200 ok");
 
 		back.send(f1, c1);
 
-		byte[] ret = out.readFully();
-		c.content().writeBytes(ret);
+		
 
 		back.closePipeline();
 	}
