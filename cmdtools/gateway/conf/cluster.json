@@ -30,7 +30,7 @@
 		{
 			"name": "/backend/uc/",
 			"uris": [
-				"http://192.168.0.116:9090"
+				"http://localhost:9090"
 			],
 			"props": {
 				
