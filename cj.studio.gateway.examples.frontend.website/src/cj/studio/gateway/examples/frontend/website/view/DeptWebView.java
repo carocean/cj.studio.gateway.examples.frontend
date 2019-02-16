@@ -31,7 +31,8 @@ public class DeptWebView implements IGatewayAppSiteWayWebView {
 		List<DeptmentBO> list=dept.getAll();
 		System.out.println(list.size());
 		
-		dept.testArg(bo);
+		int i=dept.testArg(bo);
+		System.out.println("---"+i);
 	}
 
 }
