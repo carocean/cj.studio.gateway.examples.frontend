@@ -156,6 +156,3 @@
 2018年12月30日 20:39:48  信息 : 已装载共享库/Users/caroceanjofers/studio/cj.studio.gateway.examples.frontend/cmdtools/gateway/lib/share
 2018年12月30日 22:12:27  信息 : -------------网关启动完毕-------------------
 2018年12月30日 22:14:25  信息 : 已装载共享库/Users/caroceanjofers/studio/cj.studio.gateway.examples.frontend/cmdtools/gateway/lib/share
-2019年02月23日 09:59:02  信息 : -------------网关启动完毕-------------------
-2019年02月23日 09:59:17  信息 : 已装载共享库/Users/caroceanjofers/studio/github/cj.studio.gateway.examples.frontend/cmdtools/gateway/lib/share
-2019年02月23日 09:59:32  错误: cj.studio.gateway.server.handler.HttpChannelHandler - 资源文件不存在:/dept/index.html

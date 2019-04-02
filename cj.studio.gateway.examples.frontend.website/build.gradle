@@ -18,17 +18,38 @@ sourceSets {
  } 
 
 dependencies {
+	compile group: 'cj.studio.gateway2', name: 'cj.studio.gateway.stub', version: ref_cj_gateway_stub_version
+	compile group: 'cj.studio.gateway.examples.backend', name: 'cj.studio.gateway.examples.backend.usercenter.stub', version: ref_cj_studio_gateway_examples_backend_usercenter_stub_version
 	compile fileTree('../global/runtime')
-	compile fileTree('../global/cjtools')
-	compile fileTree('../global/cjmodules')
 	compile fileTree('src/cj/refembeds')
 	compile fileTree('src/cj/references')
 }
-task releaseToHost(type: Copy) {
- dependsOn "build"
+task copyRefembeds(type: Copy) {
+    into 'src/cj/refembeds'
+    from(configurations.all) {
+        include 'cj.studio.gateway.stub-*.jar'
+        //下面在执行uploadArchives方法时只执行删除缺不拷贝，因此注释掉
+       // delete fileTree("src/cj/refembeds").matching {
+       // 	include "cj.studio.gateway.stub-*.jar"
+    	//}
+    }
+}
+task copyReferences(type: Copy) {
+    into 'src/cj/references'
+    from(configurations.all) {
+        include 'cj.studio.gateway.examples.backend.usercenter.stub-*.jar'
+        //下面在执行uploadArchives方法时只执行删除缺不拷贝，因此注释掉
+       // delete fileTree("src/cj/refembeds").matching {
+       // 	include "cj.studio.gateway.stub-*.jar"
+    	//}
+    }
+}
+task releaseToHost(type: Copy,dependsOn:copyRefembeds) {
+ dependsOn 'copyReferences', "build"
  from 'build/libs/'
 into '../cmdtools/gateway/assemblies/website'
  include '**/*.jar'
+ exclude '**/*-javadoc.jar','**/*-sources.jar'
  }
  
  task release(type:Copy){

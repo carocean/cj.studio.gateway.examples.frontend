@@ -1,0 +1,13 @@
+{
+	"guid":"611D2F49-5877-4B6F-845B-655AE0021C6B",
+	"title":"cj.studio.gateway.examples.frontend",
+	"enabled":true,
+	"desc":"例程前台",
+	"mic":{
+		"location":"/infrastructurePlatform/frontend/",
+		"host":"tcp://localhost:7080?heartbeat=5000&initialWireSize=1&workThreadCount=2&acceptErrorPath=/website/error/",
+		"reconnDelay":6000,
+		"reconnPeriod":15000,
+		"cjtoken":"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaiIsInBhc3N3b3JkIjoiMTEiLCJleHAiOjExNzQ2OTMwMzIwNjUsInVzZXIiOiJjaiIsImlhdCI6MTU1MzgzMjA2NSwianRpIjoiY2Q2MWQwYmEtNDhjMy00NzNkLTlkYTMtMDBlZGFlYzFkNDc2In0.1Yq4mMYTYO0nzeWSpg2wJhgUtK-e2tdKf1f3fM3mh0Q"
+	}
+}
